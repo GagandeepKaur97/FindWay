@@ -85,6 +85,20 @@ class ViewController: UIViewController ,CLLocationManagerDelegate,MKMapViewDeleg
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        print("renderer")
+        
+    
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = UIColor.green
+            renderer.lineWidth = 5.0
+                   
+                       return renderer
+    }
      func showDirection(transport: MKDirectionsTransportType) {
              
                    print("inside button")
