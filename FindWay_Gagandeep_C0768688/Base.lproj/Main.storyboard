@@ -18,13 +18,27 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BrZ-p9-bSH">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kS9-Db-51F">
+                                <rect key="frame" x="309" y="797" width="75" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="4fI-vI-TZg"/>
+                                    <constraint firstAttribute="height" constant="35" id="s2p-4e-s00"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" image="location.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="showRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ikw-Pz-kuD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="BrZ-p9-bSH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8qO-Br-DdS"/>
                             <constraint firstAttribute="bottom" secondItem="BrZ-p9-bSH" secondAttribute="bottom" id="KCL-7W-iDD"/>
                             <constraint firstItem="BrZ-p9-bSH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KK1-An-VC9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kS9-Db-51F" secondAttribute="trailing" constant="30" id="uZV-i7-1T5"/>
                             <constraint firstItem="BrZ-p9-bSH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vLp-8r-qqq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kS9-Db-51F" secondAttribute="bottom" constant="30" id="zJZ-2j-SvG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,4 +51,7 @@
             <point key="canvasLocation" x="-261" y="137"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="location.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
 </document>
