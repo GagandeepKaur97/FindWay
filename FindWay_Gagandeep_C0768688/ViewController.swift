@@ -9,15 +9,26 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController ,CLLocationManagerDelegate,MKMapViewDelegate{
 
 
     @IBOutlet weak var mapView: MKMapView!
+    var locationManager = CLLocationManager()
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    }
+        locationManager.delegate = self
+        mapView.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        
+       
+            
+            
+        }
+    
 
 
 }
