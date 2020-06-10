@@ -57,6 +57,8 @@
 	<string>this application requires yoy location</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>this application.....</string>
+	<key>CFBundleIconFile</key>
+	<string>myWay.jpg</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
