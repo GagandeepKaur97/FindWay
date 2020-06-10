@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="75" id="4fI-vI-TZg"/>
                                     <constraint firstAttribute="height" constant="35" id="s2p-4e-s00"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="200"/>
                                 <state key="normal" image="location.circle.fill" catalog="system"/>
                                 <connections>
                                     <action selector="showRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ikw-Pz-kuD"/>
