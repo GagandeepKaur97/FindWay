@@ -94,7 +94,7 @@ class ViewController: UIViewController ,CLLocationManagerDelegate,MKMapViewDeleg
         
     
             let renderer = MKPolylineRenderer(overlay: overlay)
-            renderer.strokeColor = UIColor.green
+            renderer.strokeColor = UIColor.systemPink
             renderer.lineWidth = 5.0
                    
                        return renderer
@@ -148,4 +148,20 @@ class ViewController: UIViewController ,CLLocationManagerDelegate,MKMapViewDeleg
                            }
         }
 
+    @IBAction func zoomIn(_ sender: UIButton) {
+        var zoomRegion = mapView.region
+              zoomRegion.span.latitudeDelta = zoomRegion.span.latitudeDelta/2
+              zoomRegion.span.longitudeDelta = zoomRegion.span.longitudeDelta/2
+              mapView.setRegion(zoomRegion, animated: true)
+    }
+    
+    
+    @IBAction func zoomOut(_ sender: UIButton) {
+        var zoomRegion = mapView.region
+        zoomRegion.span.latitudeDelta = zoomRegion.span.latitudeDelta*2
+        zoomRegion.span.longitudeDelta = zoomRegion.span.longitudeDelta*2
+        mapView.setRegion(zoomRegion, animated: true)
+    }
+    
+    
 }

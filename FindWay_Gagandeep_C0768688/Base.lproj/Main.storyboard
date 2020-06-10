@@ -24,20 +24,43 @@
                                     <constraint firstAttribute="width" constant="75" id="4fI-vI-TZg"/>
                                     <constraint firstAttribute="height" constant="35" id="s2p-4e-s00"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <state key="normal" image="location.circle.fill" catalog="system"/>
                                 <connections>
                                     <action selector="showRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ikw-Pz-kuD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4w6-Tz-t8e">
+                                <rect key="frame" x="15" y="785" width="20" height="22"/>
+                                <state key="normal" image="plus.magnifyingglass" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="zoomIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j53-w3-Usu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqR-Tb-aCB">
+                                <rect key="frame" x="15" y="820" width="20" height="22"/>
+                                <state key="normal" image="minus.magnifyingglass" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="zoomOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9qD-qN-sIx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uqR-Tb-aCB" secondAttribute="bottom" constant="20" id="4xY-nR-hns"/>
                             <constraint firstItem="BrZ-p9-bSH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8qO-Br-DdS"/>
+                            <constraint firstItem="4w6-Tz-t8e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="GNS-c2-ol0"/>
                             <constraint firstAttribute="bottom" secondItem="BrZ-p9-bSH" secondAttribute="bottom" id="KCL-7W-iDD"/>
                             <constraint firstItem="BrZ-p9-bSH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KK1-An-VC9"/>
+                            <constraint firstItem="uqR-Tb-aCB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="ZT5-XU-P3k"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4w6-Tz-t8e" secondAttribute="bottom" constant="55" id="fFA-Tw-UaV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kS9-Db-51F" secondAttribute="trailing" constant="30" id="uZV-i7-1T5"/>
                             <constraint firstItem="BrZ-p9-bSH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vLp-8r-qqq"/>
+                            <constraint firstItem="4w6-Tz-t8e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="vrC-eH-efS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kS9-Db-51F" secondAttribute="bottom" constant="30" id="zJZ-2j-SvG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -53,5 +76,7 @@
     </scenes>
     <resources>
         <image name="location.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="minus.magnifyingglass" catalog="system" width="64" height="56"/>
+        <image name="plus.magnifyingglass" catalog="system" width="64" height="56"/>
     </resources>
 </document>
