@@ -15,6 +15,7 @@
 		CE1179C824917F4100BECD9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1179C624917F4100BECD9D /* LaunchScreen.storyboard */; };
 		CE1179F02491A1F200BECD9D /* myWay.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE1179EF2491A1F200BECD9D /* myWay.jpg */; };
 		CE117A8B2496B84200BECD9D /* FavPlaceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE117A8A2496B84200BECD9D /* FavPlaceTVC.swift */; };
+		CE117A902496BCD200BECD9D /* Favourites.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE117A8E2496BCD200BECD9D /* Favourites.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CE1179C924917F4100BECD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE1179EF2491A1F200BECD9D /* myWay.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = myWay.jpg; sourceTree = "<group>"; };
 		CE117A8A2496B84200BECD9D /* FavPlaceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavPlaceTVC.swift; sourceTree = "<group>"; };
+		CE117A8F2496BCD200BECD9D /* Favourites.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favourites.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				CE1179C924917F4100BECD9D /* Info.plist */,
 				CE1179EF2491A1F200BECD9D /* myWay.jpg */,
 				CE117A8A2496B84200BECD9D /* FavPlaceTVC.swift */,
+				CE117A8E2496BCD200BECD9D /* Favourites.xcdatamodeld */,
 			);
 			path = FindWay_Gagandeep_C0768688;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			files = (
 				CE1179C024917F3C00BECD9D /* ViewController.swift in Sources */,
 				CE1179BC24917F3C00BECD9D /* AppDelegate.swift in Sources */,
+				CE117A902496BCD200BECD9D /* Favourites.xcdatamodeld in Sources */,
 				CE1179BE24917F3C00BECD9D /* SceneDelegate.swift in Sources */,
 				CE117A8B2496B84200BECD9D /* FavPlaceTVC.swift in Sources */,
 			);
@@ -344,6 +348,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CE117A8E2496BCD200BECD9D /* Favourites.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CE117A8F2496BCD200BECD9D /* Favourites.xcdatamodel */,
+			);
+			currentVersion = CE117A8F2496BCD200BECD9D /* Favourites.xcdatamodel */;
+			path = Favourites.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CE1179B024917F3C00BECD9D /* Project object */;
 }
