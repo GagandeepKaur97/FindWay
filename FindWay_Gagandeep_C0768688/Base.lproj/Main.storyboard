@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AmD-HK-SJ2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -24,8 +24,11 @@
                                     <constraint firstAttribute="width" constant="75" id="4fI-vI-TZg"/>
                                     <constraint firstAttribute="height" constant="35" id="s2p-4e-s00"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="200"/>
-                                <state key="normal" image="location.circle.fill" catalog="system"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="29" minY="0.0" maxX="0.0" maxY="1"/>
+                                <state key="normal" image="location.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                </state>
                                 <connections>
                                     <action selector="showRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ikw-Pz-kuD"/>
                                 </connections>
@@ -34,6 +37,7 @@
                                 <rect key="frame" x="15" y="785" width="20" height="22"/>
                                 <state key="normal" image="plus.magnifyingglass" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                 </state>
                                 <connections>
                                     <action selector="zoomIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j53-w3-Usu"/>
@@ -43,6 +47,7 @@
                                 <rect key="frame" x="15" y="820" width="20" height="22"/>
                                 <state key="normal" image="minus.magnifyingglass" catalog="system">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                 </state>
                                 <connections>
                                     <action selector="zoomOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9qD-qN-sIx"/>
@@ -65,16 +70,71 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="rxV-vs-Edd">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart.circle.fill" catalog="system" id="KY3-fb-aHP">
+                            <connections>
+                                <segue destination="q2a-WQ-I3I" kind="show" id="NxN-ra-EEi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="BrZ-p9-bSH" id="Hyv-Sl-rTL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-261" y="137"/>
+            <point key="canvasLocation" x="647.82608695652175" y="136.60714285714286"/>
+        </scene>
+        <!--Fav PlaceTVC-->
+        <scene sceneID="BTa-aM-BWg">
+            <objects>
+                <tableViewController id="q2a-WQ-I3I" customClass="FavPlaceTVC" customModule="FindWay_Gagandeep_C0768688" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9rn-Do-rt9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Fjq-dl-V3J">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fjq-dl-V3J" id="gKr-ix-xNR">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="q2a-WQ-I3I" id="W41-1C-nd8"/>
+                            <outlet property="delegate" destination="q2a-WQ-I3I" id="IKm-jI-BQT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="DmB-ys-NYf"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mfD-t5-Bdr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1452" y="144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2Xl-Gx-gee">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AmD-HK-SJ2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sFr-cP-Bym">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wuW-6a-wcE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PRc-1x-div" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-262.31884057971018" y="136.60714285714286"/>
         </scene>
     </scenes>
     <resources>
+        <image name="heart.circle.fill" catalog="system" width="64" height="60"/>
         <image name="location.circle.fill" catalog="system" width="64" height="60"/>
         <image name="minus.magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="plus.magnifyingglass" catalog="system" width="64" height="56"/>

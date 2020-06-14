@@ -13,6 +13,8 @@ class ViewController: UIViewController ,CLLocationManagerDelegate,MKMapViewDeleg
 
 
     @IBOutlet weak var mapView: MKMapView!
+    
+    
     var locationManager = CLLocationManager()
     var destination :CLLocationCoordinate2D?
     var pressed = false
