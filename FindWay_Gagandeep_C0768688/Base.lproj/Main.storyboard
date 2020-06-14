@@ -120,15 +120,15 @@
             </objects>
             <point key="canvasLocation" x="1452" y="144"/>
         </scene>
-        <!--View Controller-->
+        <!--Add PlaceVC-->
         <scene sceneID="bvI-CW-kbY">
             <objects>
-                <viewController id="1WT-Gc-OeP" sceneMemberID="viewController">
+                <viewController id="1WT-Gc-OeP" customClass="AddPlaceVC" customModule="FindWay_Gagandeep_C0768688" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bhp-iZ-yum">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eHL-dl-7Iy">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eHL-dl-7Iy">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </mapView>
                         </subviews>
@@ -142,6 +142,9 @@
                         <viewLayoutGuide key="safeArea" id="DrV-ZB-rYz"/>
                     </view>
                     <navigationItem key="navigationItem" id="gds-JA-zbR"/>
+                    <connections>
+                        <outlet property="mapView" destination="eHL-dl-7Iy" id="qkF-e4-IvB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcJ-WX-4pE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
