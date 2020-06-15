@@ -20,6 +20,7 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     var street : String?
     var city : String?
     var defaults : UserDefaults?
+    let defaults1 = UserDefaults.standard
     
 
     override func viewDidLoad() {
@@ -110,17 +111,7 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
-        
-        print("graggable/////////////////////////")
-        switch newState {
-        case .starting:
-            view.dragState = .dragging
-        case .ending, .canceling:
-            view.dragState = .none
-        default: break
-        }
-    }
+   
     
     func getAddress( ann: MKPointAnnotation) {
         let location = CLLocation(latitude: lat!, longitude: long!)
@@ -145,7 +136,7 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
                         
                         ann.title = address
                         self.street = address
-//                        self.defaults?.setValue(address, forKey: "street")
+                        self.defaults1.setValue(address, forKey: "street")
                         address = ""
                     }
 
@@ -166,7 +157,7 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
                         
                         ann.subtitle = address
                         self.city = address
-//                        self.defaults?.set(address, forKey: "city")
+                     self.defaults1.setValue(address, forKey: "city")
                     }
 
                 

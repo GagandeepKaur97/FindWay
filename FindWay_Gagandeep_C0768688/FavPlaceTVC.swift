@@ -36,9 +36,16 @@ class FavPlaceTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "favcell"){
             
-    
-        cell.textLabel?.text = Favplaces.fpArray[indexPath.row].street
-        cell.detailTextLabel?.text = Favplaces.fpArray[indexPath.row].city
+            let cy  =   UserDefaults.standard.string(forKey: "city")
+            let st  =   UserDefaults.standard.string(forKey: "street")
+ 
+//        cell.textLabel?.text = Favplaces.fpArray[indexPath.row].street
+//        cell.detailTextLabel?.text = Favplaces.fpArray[indexPath.row].city
+//
+            cell.textLabel?.text = st
+                 cell.detailTextLabel?.text = cy
+           
+//            print(" saved value"+street!)
         
         
 
