@@ -131,12 +131,31 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eHL-dl-7Iy">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAf-V0-Hsy">
+                                <rect key="frame" x="30" y="761" width="20" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <state key="normal" image="plus.magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="zoomIn:" destination="1WT-Gc-OeP" eventType="touchUpInside" id="44u-O5-2MP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcv-Jq-kMv">
+                                <rect key="frame" x="30" y="810" width="20" height="22"/>
+                                <state key="normal" image="minus.magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="zoomOut:" destination="1WT-Gc-OeP" eventType="touchUpInside" id="Hkp-xw-xrK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Vcv-Jq-kMv" firstAttribute="leading" secondItem="DrV-ZB-rYz" secondAttribute="leading" constant="30" id="QKN-ry-ztW"/>
                             <constraint firstItem="eHL-dl-7Iy" firstAttribute="leading" secondItem="DrV-ZB-rYz" secondAttribute="leading" id="Wff-By-dDS"/>
                             <constraint firstItem="DrV-ZB-rYz" firstAttribute="trailing" secondItem="eHL-dl-7Iy" secondAttribute="trailing" id="caa-bP-1n4"/>
+                            <constraint firstItem="DrV-ZB-rYz" firstAttribute="bottom" secondItem="Vcv-Jq-kMv" secondAttribute="bottom" constant="30" id="fdu-gm-aVb"/>
                             <constraint firstItem="eHL-dl-7Iy" firstAttribute="top" secondItem="DrV-ZB-rYz" secondAttribute="top" id="kk4-gv-aPd"/>
+                            <constraint firstItem="DrV-ZB-rYz" firstAttribute="bottom" secondItem="zAf-V0-Hsy" secondAttribute="bottom" constant="50" id="oga-RI-55h"/>
+                            <constraint firstItem="zAf-V0-Hsy" firstAttribute="leading" secondItem="DrV-ZB-rYz" secondAttribute="leading" constant="30" id="sT7-AW-Gpf"/>
                             <constraint firstItem="DrV-ZB-rYz" firstAttribute="bottom" secondItem="eHL-dl-7Iy" secondAttribute="bottom" id="vnp-Rw-Zbr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DrV-ZB-rYz"/>
@@ -148,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcJ-WX-4pE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2211" y="138"/>
+            <point key="canvasLocation" x="2210.144927536232" y="137.94642857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Xl-Gx-gee">

@@ -185,7 +185,21 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+    }}*/
+     @IBAction func zoomIn(_ sender: UIButton) {
+        var zoomRegion = mapView.region
+                     zoomRegion.span.latitudeDelta = zoomRegion.span.latitudeDelta/2
+                     zoomRegion.span.longitudeDelta = zoomRegion.span.longitudeDelta/2
+                     mapView.setRegion(zoomRegion, animated: true)
+     
     }
-    */
+
+    @IBAction func zoomOut(_ sender: UIButton) {
+        var zoomRegion = mapView.region
+        zoomRegion.span.latitudeDelta = zoomRegion.span.latitudeDelta*2
+        zoomRegion.span.longitudeDelta = zoomRegion.span.longitudeDelta*2
+        mapView.setRegion(zoomRegion, animated: true)
+        
+    }
 
 }
