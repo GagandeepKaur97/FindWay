@@ -56,6 +56,9 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
 
               let annotation = MKPointAnnotation()
               annotation.coordinate = coordinate
+    
+        
+    
 
         mapView.addAnnotation(annotation)
         lat = coordinate.latitude
@@ -84,6 +87,7 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+       
         let alert = UIAlertController(title: "Favourites", message: "Do you want to add this place to favourite!", preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "Yes", style: .default) { (action) in
@@ -104,6 +108,18 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
         alert.addAction(noAction)
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
+        
+        print("graggable/////////////////////////")
+        switch newState {
+        case .starting:
+            view.dragState = .dragging
+        case .ending, .canceling:
+            view.dragState = .none
+        default: break
+        }
     }
     
     func getAddress( ann: MKPointAnnotation) {
