@@ -24,23 +24,40 @@ class FavPlaceTVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Favplaces.fpArray.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "favcell"){
+            
+    
+        cell.textLabel?.text = Favplaces.fpArray[indexPath.row].street
+        cell.detailTextLabel?.text = Favplaces.fpArray[indexPath.row].city
+        
+        
 
         // Configure the cell...
 
         return cell
+        }
+        return UITableViewCell()
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, success) in
+            
+            Favplaces.fpArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        return UISwipeActionsConfiguration(actions: [delAction])
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,5 +103,9 @@ class FavPlaceTVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
 }

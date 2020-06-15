@@ -17,6 +17,7 @@
 		CE117A8B2496B84200BECD9D /* FavPlaceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE117A8A2496B84200BECD9D /* FavPlaceTVC.swift */; };
 		CE117A902496BCD200BECD9D /* Favourites.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE117A8E2496BCD200BECD9D /* Favourites.xcdatamodeld */; };
 		CE117A922496BED600BECD9D /* AddPlaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE117A912496BED600BECD9D /* AddPlaceVC.swift */; };
+		CECC8CC224971E1E00594C49 /* Favmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC8CC124971E1E00594C49 /* Favmodel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CE117A8A2496B84200BECD9D /* FavPlaceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavPlaceTVC.swift; sourceTree = "<group>"; };
 		CE117A8F2496BCD200BECD9D /* Favourites.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favourites.xcdatamodel; sourceTree = "<group>"; };
 		CE117A912496BED600BECD9D /* AddPlaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceVC.swift; sourceTree = "<group>"; };
+		CECC8CC124971E1E00594C49 /* Favmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favmodel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				CE117A8A2496B84200BECD9D /* FavPlaceTVC.swift */,
 				CE117A8E2496BCD200BECD9D /* Favourites.xcdatamodeld */,
 				CE117A912496BED600BECD9D /* AddPlaceVC.swift */,
+				CECC8CC124971E1E00594C49 /* Favmodel.swift */,
 			);
 			path = FindWay_Gagandeep_C0768688;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				CE117A902496BCD200BECD9D /* Favourites.xcdatamodeld in Sources */,
 				CE1179BE24917F3C00BECD9D /* SceneDelegate.swift in Sources */,
 				CE117A8B2496B84200BECD9D /* FavPlaceTVC.swift in Sources */,
+				CECC8CC224971E1E00594C49 /* Favmodel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
