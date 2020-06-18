@@ -16,10 +16,13 @@ class editFavViewController: UIViewController,CLLocationManagerDelegate, MKMapVi
     
     var latitude: Double = UserDefaults.standard.double(forKey: "latitude")
      var longitude: Double = UserDefaults.standard.double(forKey: "longitude")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          notesSaveLocation()
         // Do any additional setup after loading the view.
+        mapview.delegate = self
+       
     }
     
     func notesSaveLocation(){
@@ -28,10 +31,15 @@ class editFavViewController: UIViewController,CLLocationManagerDelegate, MKMapVi
         let favplace = MKPointAnnotation()
          favplace.title = "favplace"
          favplace.coordinate = CLLocationCoordinate2D(latitude: latitude ,longitude: longitude)
+         let regionSpan =   MKCoordinateRegion(center:    favplace.coordinate , latitudinalMeters: 1000, longitudinalMeters: 1000)
          mapview.addAnnotation(favplace)
+        self.mapview.setRegion(regionSpan, animated: true)
         
           
       }
+   
+    
+  
     
     
     /*
