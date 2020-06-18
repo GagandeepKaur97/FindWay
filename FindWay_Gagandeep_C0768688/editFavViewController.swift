@@ -16,13 +16,18 @@ class editFavViewController: UIViewController,CLLocationManagerDelegate, MKMapVi
     
     var latitude: Double = UserDefaults.standard.double(forKey: "latitude")
      var longitude: Double = UserDefaults.standard.double(forKey: "longitude")
+   var lat : Double?
+     var long : Double?
+     var street : String?
+     var city : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         notesSaveLocation()
+     
         // Do any additional setup after loading the view.
         mapview.delegate = self
-       
+        
+           notesSaveLocation()
     }
     
     func notesSaveLocation(){
@@ -31,17 +36,99 @@ class editFavViewController: UIViewController,CLLocationManagerDelegate, MKMapVi
         let favplace = MKPointAnnotation()
          favplace.title = "favplace"
          favplace.coordinate = CLLocationCoordinate2D(latitude: latitude ,longitude: longitude)
-         let regionSpan =   MKCoordinateRegion(center:    favplace.coordinate , latitudinalMeters: 1000, longitudinalMeters: 1000)
-         mapview.addAnnotation(favplace)
-        self.mapview.setRegion(regionSpan, animated: true)
+        let newp = CLLocationCoordinate2D(latitude: latitude ,longitude: longitude)
+        let latDelta: CLLocationDegrees = 0.05
+        let longDelta: CLLocationDegrees = 0.05
         
+        let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
+
+        let regionSpan =   MKCoordinateRegion(center: newp , span: span )
+       
+         mapview.addAnnotation(favplace)
+        
+            mapview.setRegion(regionSpan, animated: true)
+         
           
       }
    
+        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            
+           
+            
+                    let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+                        pin.image = UIImage(named: "customIcon")
+                        pin.isDraggable = true
+                          pin.pinTintColor = .red
+                          pin.animatesDrop = true
+                       pin.canShowCallout = true
+                    pin.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+                  lat = latitude
+                           long = longitude
+                       
+                  getAddress(ann: annotation as! MKPointAnnotation)
+                    print(getAddress(ann: annotation as! MKPointAnnotation))
+               
+                          return pin
+           
+    }
     
+   func getAddress( ann: MKPointAnnotation) {
+    let location = CLLocation(latitude: lat!, longitude: long!)
+    
+   
+    
+    CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in
+        if let error = error {
+            print(error)
+        } else {
+            if let placemark = placemarks?[0] {
+
+                var address = ""
+                if placemark.subThoroughfare != nil {
+                    address += placemark.subThoroughfare! + " "
+                    
+                    
+                }
+
+                if placemark.thoroughfare != nil {
+                    address += placemark.thoroughfare!
+                    
+                    ann.title = address
+                    self.street = address
+                    UserDefaults.standard.setValue(address, forKey: "street")
+                    address = ""
+                }
+
+                if placemark.subLocality != nil {
+                    address += placemark.subLocality! + " "
+                }
+
+                if placemark.subAdministrativeArea != nil {
+                    address += placemark.subAdministrativeArea! + " "
+                }
+
+                if placemark.postalCode != nil {
+                    address += placemark.postalCode! + " "
+                }
+
+                if placemark.country != nil {
+                    address += placemark.country!
+                    
+                    ann.subtitle = address
+                    self.city = address
+                    print(address)
+//                 self.defaults1.setValue(address, forKey: "city")
+                }
+
+            
+            }
+        }
+
+
+    }
   
     
-    
+    }
     /*
     // MARK: - Navigation
 

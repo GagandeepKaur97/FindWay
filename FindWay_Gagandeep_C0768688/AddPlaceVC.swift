@@ -30,10 +30,14 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
         // Do any additional setup after loading the view.
         
         locationManager.delegate = self
-         mapView.delegate = self
          locationManager.desiredAccuracy = kCLLocationAccuracyBest
          locationManager.requestWhenInUseAuthorization()
-    
+        locationManager.startUpdatingLocation()
+       
+        mapView.showsUserLocation = true
+         mapView.delegate = self
+        let zoomArea = MKCoordinateRegion(center: self.mapView.userLocation.coordinate, span: MKCoordinateSpan (latitudeDelta: 0.05, longitudeDelta: 0.05))
+               self.mapView.setRegion(zoomArea, animated: true)
         let tapgesture = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
         tapgesture.numberOfTapsRequired = 2
         mapView.addGestureRecognizer(tapgesture)
@@ -57,56 +61,57 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
 
               let annotation = MKPointAnnotation()
               annotation.coordinate = coordinate
-    
-        
-    
-
-        mapView.addAnnotation(annotation)
-        lat = coordinate.latitude
-        long = coordinate.longitude
-        getAddress(ann: annotation)
+                mapView.addAnnotation(annotation)
+                lat = coordinate.latitude
+                long = coordinate.longitude
+                getAddress(ann: annotation)
                    
 
     }
+    
+
+  
     
     
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
 
-        if annotation is MKUserLocation{
-            print("view for anoo//////////")
-
-            return nil
-        }
-        else{
-            print("view for anoo...............")
-            let av = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
-            av.image = UIImage(named: "customIcon")
-
-            av.canShowCallout = true
-            av.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            getAddress(ann: annotation as! MKPointAnnotation)
-            return av
-
-        }
-//           if annotation is MKUserLocation{
-//                    print("view for anoo//////////")
+//        if annotation is MKUserLocation{
+//            print("view for anoo//////////")
 //
-//                    return nil
-//           }else{
+//            return nil
+//        }
+//        else{
+//            print("view for anoo...............")
+//            let av = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
+//            av.image = UIImage(named: "customIcon")
 //
-//        let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-//            pin.image = UIImage(named: "customIcon")
-//            pin.isDraggable = true
-//              pin.pinTintColor = .red
-//              pin.animatesDrop = true
-//           pin.canShowCallout = true
-//        pin.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-//        getAddress(ann: annotation as! MKPointAnnotation)
-//              return pin
+//            av.canShowCallout = true
+//            av.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+//            getAddress(ann: annotation as! MKPointAnnotation)
+//            return av
 //
 //        }
+        
+        
+           if annotation is MKUserLocation{
+                    print("view for anoo//////////")
+
+                    return nil
+           }else{
+
+        let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            pin.image = UIImage(named: "customIcon")
+            pin.isDraggable = true
+              pin.pinTintColor = .red
+              pin.animatesDrop = true
+           pin.canShowCallout = true
+        pin.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        getAddress(ann: annotation as! MKPointAnnotation)
+              return pin
+
+        }
       
     }
     
