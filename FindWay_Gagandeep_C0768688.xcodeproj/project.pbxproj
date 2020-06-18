@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A032BDF249B188700CFF241 /* editFavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A032BDE249B188700CFF241 /* editFavViewController.swift */; };
 		CE1179BC24917F3C00BECD9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1179BB24917F3C00BECD9D /* AppDelegate.swift */; };
 		CE1179BE24917F3C00BECD9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1179BD24917F3C00BECD9D /* SceneDelegate.swift */; };
 		CE1179C024917F3C00BECD9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1179BF24917F3C00BECD9D /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A032BDE249B188700CFF241 /* editFavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editFavViewController.swift; sourceTree = "<group>"; };
 		CE1179B824917F3C00BECD9D /* FindWay_Gagandeep_C0768688.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindWay_Gagandeep_C0768688.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1179BB24917F3C00BECD9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE1179BD24917F3C00BECD9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				CE117A8E2496BCD200BECD9D /* Favourites.xcdatamodeld */,
 				CE117A912496BED600BECD9D /* AddPlaceVC.swift */,
 				CECC8CC124971E1E00594C49 /* Favmodel.swift */,
+				7A032BDE249B188700CFF241 /* editFavViewController.swift */,
 			);
 			path = FindWay_Gagandeep_C0768688;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A032BDF249B188700CFF241 /* editFavViewController.swift in Sources */,
 				CE117A922496BED600BECD9D /* AddPlaceVC.swift in Sources */,
 				CE1179C024917F3C00BECD9D /* ViewController.swift in Sources */,
 				CE1179BC24917F3C00BECD9D /* AppDelegate.swift in Sources */,

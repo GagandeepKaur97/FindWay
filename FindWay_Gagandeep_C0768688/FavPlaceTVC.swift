@@ -10,6 +10,8 @@ import UIKit
 
 class FavPlaceTVC: UITableViewController {
 
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,15 +38,15 @@ class FavPlaceTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "favcell"){
             
-            let cy  =   UserDefaults.standard.string(forKey: "city")
-            let st  =   UserDefaults.standard.string(forKey: "street")
- 
-//        cell.textLabel?.text = Favplaces.fpArray[indexPath.row].street
-//        cell.detailTextLabel?.text = Favplaces.fpArray[indexPath.row].city
+//            let cy  =   UserDefaults.standard.string(forKey: "city")
+//            let st  =   UserDefaults.standard.string(forKey: "street")
 //
-            cell.textLabel?.text = st
-                 cell.detailTextLabel?.text = cy
-           
+        cell.textLabel?.text = Favplaces.fpArray[indexPath.row].street
+        cell.detailTextLabel?.text = Favplaces.fpArray[indexPath.row].city
+
+//            cell.textLabel?.text = st
+//                 cell.detailTextLabel?.text = cy
+//           
 //            print(" saved value"+street!)
         
         
@@ -65,7 +67,16 @@ class FavPlaceTVC: UITableViewController {
         return UISwipeActionsConfiguration(actions: [delAction])
     }
     
-
+   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           let editedPlace =  Favplaces.fpArray[indexPath.row]
+            defaults.set(editedPlace.lat, forKey: "latitude")
+            defaults.set(editedPlace.long, forKey: "longitude")
+           defaults.set(true, forKey: "bool")
+           defaults.set(indexPath.row, forKey: "edit")
+           let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "editVC") as! editFavViewController
+           self.navigationController?.pushViewController(mapVC, animated: true)
+    
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

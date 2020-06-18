@@ -22,6 +22,7 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     var defaults : UserDefaults?
     let defaults1 = UserDefaults.standard
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +33,7 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
          mapView.delegate = self
          locationManager.desiredAccuracy = kCLLocationAccuracyBest
          locationManager.requestWhenInUseAuthorization()
-        
-         
-
+    
         let tapgesture = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
         tapgesture.numberOfTapsRequired = 2
         mapView.addGestureRecognizer(tapgesture)
@@ -44,11 +43,12 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
         
         
         let allannotations = mapView.annotations
+      
 
         if allannotations.count > 1{
             
             
-            let ann = allannotations[1]
+            let ann = allannotations[0]
             mapView.removeAnnotation(ann)
         }
               
@@ -69,7 +69,11 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
 
     }
     
+    
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+
         if annotation is MKUserLocation{
             print("view for anoo//////////")
 
@@ -79,19 +83,38 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
             print("view for anoo...............")
             let av = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
             av.image = UIImage(named: "customIcon")
-            
+
             av.canShowCallout = true
             av.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             getAddress(ann: annotation as! MKPointAnnotation)
             return av
+
         }
+//           if annotation is MKUserLocation{
+//                    print("view for anoo//////////")
+//
+//                    return nil
+//           }else{
+//
+//        let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+//            pin.image = UIImage(named: "customIcon")
+//            pin.isDraggable = true
+//              pin.pinTintColor = .red
+//              pin.animatesDrop = true
+//           pin.canShowCallout = true
+//        pin.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+//        getAddress(ann: annotation as! MKPointAnnotation)
+//              return pin
+//
+//        }
+      
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
        
         let alert = UIAlertController(title: "Favourites", message: "Do you want to add this place to favourite!", preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+        let okAction = UIAlertAction(title: "Yes", style: .default) { (UIAlertAction) in
             
             self.defaults = UserDefaults.standard
             let fp = Favplaces(lat: self.lat!, long: self.long!, street: self.street!, city: self.city!)
