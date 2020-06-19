@@ -125,6 +125,39 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
             let fp = Favplaces(lat: self.lat!, long: self.long!, street: self.street!, city: self.city!)
             Favplaces.fpArray.append(fp)
             
+            
+            
+            // update the user default also here
+            //lat
+            var temp_lat = [Double]()
+            
+            
+            
+            //long
+            var temp_long = [Double]()
+            //street
+            var temp_street = [String]()
+            //city
+            var temp_city = [String]()
+           
+            for place in Favplaces.fpArray{
+                
+                temp_lat.append(place.lat)
+                temp_long.append(place.long)
+                temp_city.append(place.city)
+                temp_street.append(place.street)
+                
+            }
+            
+            
+            
+            self.defaults1.set(temp_lat, forKey: "lat")
+            self.defaults1.set(temp_long, forKey: "long")
+            self.defaults1.set(temp_street, forKey: "street")
+            self.defaults1.set(temp_city, forKey: "city")
+            
+            
+            
 //            self.defaults?.set(Favplaces.fpArray, forKey: "SavedArray")
             
            
@@ -142,7 +175,9 @@ class AddPlaceVC: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
    
     
     func getAddress( ann: MKPointAnnotation) {
-        let location = CLLocation(latitude: lat!, longitude: long!)
+        
+        //let location = CLLocation(latitude: lat!, longitude: long!)
+        let location = CLLocation(latitude: ann.coordinate.latitude, longitude: ann.coordinate.longitude)
         
        
         

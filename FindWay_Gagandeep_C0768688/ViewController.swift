@@ -13,7 +13,7 @@ class ViewController: UIViewController ,CLLocationManagerDelegate,MKMapViewDeleg
 
 
     @IBOutlet weak var mapView: MKMapView!
-    
+    let defaults1 = UserDefaults.standard
     
     var locationManager = CLLocationManager()
     var destination :CLLocationCoordinate2D?
@@ -22,6 +22,27 @@ class ViewController: UIViewController ,CLLocationManagerDelegate,MKMapViewDeleg
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        // fetch data from user default and save it to Array
+        
+        let temp_lat = defaults1.object(forKey:"lat") as? [Double] ?? [Double]()
+        let temp_long = defaults1.object(forKey:"long") as? [Double] ?? [Double]()
+        let temp_street = defaults1.object(forKey:"street") as? [String] ?? [String]()
+        let temp_city = defaults1.object(forKey:"city") as? [String] ?? [String]()
+        
+        
+        // add this data to our static array
+        
+        
+        
+        
+        for i in temp_city.indices{
+            Favplaces.fpArray.append(Favplaces(lat: temp_lat[i], long: temp_long[i], street: temp_street[i], city: temp_city[i]))
+        }
+        
+        
         // Do any additional setup after loading the view.
         locationManager.delegate = self
         mapView.delegate = self

@@ -12,6 +12,7 @@ class FavPlaceTVC: UITableViewController {
 
     let defaults = UserDefaults.standard
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,8 +42,8 @@ class FavPlaceTVC: UITableViewController {
 //            let cy  =   UserDefaults.standard.string(forKey: "city")
 //            let st  =   UserDefaults.standard.string(forKey: "street")
 //
-        cell.textLabel?.text = Favplaces.fpArray[indexPath.row].street
-        cell.detailTextLabel?.text = Favplaces.fpArray[indexPath.row].city
+        cell.textLabel?.text = Favplaces.fpArray[indexPath.row].city
+        //cell.detailTextLabel?.text = Favplaces.fpArray[indexPath.row].city
 
 //            cell.textLabel?.text = st
 //                 cell.detailTextLabel?.text = cy
@@ -63,17 +64,52 @@ class FavPlaceTVC: UITableViewController {
             
             Favplaces.fpArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            // update user default
+            // update the user default also here
+             //lat
+             var temp_lat = [Double]()
+             
+             
+             
+             //long
+             var temp_long = [Double]()
+             //street
+             var temp_street = [String]()
+             //city
+             var temp_city = [String]()
+            
+             for place in Favplaces.fpArray{
+                 
+                 temp_lat.append(place.lat)
+                 temp_long.append(place.long)
+                 temp_city.append(place.city)
+                 temp_street.append(place.street)
+                 
+             }
+             
+             
+             
+             self.defaults.set(temp_lat, forKey: "lat")
+             self.defaults.set(temp_long, forKey: "long")
+             self.defaults.set(temp_street, forKey: "street")
+             self.defaults.set(temp_city, forKey: "city")
         }
         return UISwipeActionsConfiguration(actions: [delAction])
     }
     
    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            let editedPlace =  Favplaces.fpArray[indexPath.row]
+            print("All data")
+    print(Favplaces.fpArray[0].lat)
+    print(Favplaces.fpArray[0].long)
+    print(Favplaces.fpArray[0].street)
             defaults.set(editedPlace.lat, forKey: "latitude")
             defaults.set(editedPlace.long, forKey: "longitude")
            defaults.set(true, forKey: "bool")
            defaults.set(indexPath.row, forKey: "edit")
            let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "editVC") as! editFavViewController
+    mapVC.location_index = indexPath.row
            self.navigationController?.pushViewController(mapVC, animated: true)
     
     }

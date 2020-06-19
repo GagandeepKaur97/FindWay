@@ -23,4 +23,11 @@ class Favplaces
     
     static var fpArray = [Favplaces]()
     
+    // store data in user defaults
+    
+    //lat
+    //long
+    //street
+    //city
+    
 }
